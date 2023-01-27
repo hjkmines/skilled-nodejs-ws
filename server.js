@@ -4,6 +4,7 @@ const connectDB = require('./config/db')
 const logger = require('./utils/logger')
 const user = require('./routes/user');
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 
 dotenv.config({ path: './config/config.env' })
 
@@ -12,6 +13,7 @@ connectDB();
 const app = express(); 
 
 app.use(bodyParser.json())
+app.use(cookieParser())
 
 const PORT = process.env.PORT || 5001; 
 
